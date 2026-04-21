@@ -124,31 +124,62 @@
                 <h2 class="section-tag text-pink">03. Platforms</h2>
                 <h3 class="section-title">The Tridion Sites MCP Server</h3>
                 <p class="section-text max-w-xl">
-                    A first-of-its-kind <strong>Model Context Protocol (MCP)</strong> implementation for Enterprise
-                    Content Management. By exposing over 80 CMS specialized tools to LLMs, we've turned a complex
-                    repository into an agent-ready ecosystem.
+                    Building a Model Context Protocol (MCP) server for an enterprise CMS reveals unique challenges.
+                    Exposing over 80 specialized tools allows an LLM to navigate complex business rules, but requires
+                    careful architecture to avoid overloading the system prompt or context window.
                 </p>
-                <div class="grid col-3 m-t-4">
+
+                <h4 class="m-t-4 m-b-4" style="font-size: 1.5rem; color: var(--text-primary);">Enterprise MCP Design
+                    Patterns</h4>
+                <div class="grid col-3">
                     <div class="card">
-                        <h4 class="card-title">Discovery</h4>
-                        <p class="card-text">Dynamic tool discovery allowing agents to find the right CMS function
-                            on-the-fly.</p>
+                        <h4 class="card-title">Rich Documentation</h4>
+                        <p class="card-text">Semantic naming, detailed descriptions, and concrete examples
+                            are essential for helping agents infer hidden business rules and complex enterprise logic.
+                        </p>
                     </div>
                     <div class="card">
-                        <h4 class="card-title">BluePrinting</h4>
-                        <p class="card-text">Exposing heritage-level complexity to AI for intelligent inheritance
-                            management.</p>
+                        <h4 class="card-title">Find-Then-Fetch</h4>
+                        <p class="card-text">Returning raw REST API responses quickly exhausts context limits. Adopting
+                            an API that requires LLMs to request specific properties ensures responses stay lean.</p>
                     </div>
                     <div class="card">
-                        <h4 class="card-title">Governance</h4>
-                        <p class="card-text">Safe, validated state mutations within high-governance enterprise
-                            environments.</p>
+                        <h4 class="card-title">Bulk Orchestration</h4>
+                        <p class="card-text">To update or classify thousands of items without spamming the client or
+                            suffering latency, a dedicated orchestration tool executes scripts securely on the server.
+                        </p>
                     </div>
                 </div>
-                <div class="m-t-4 text-center">
-                    <a href="https://github.com/nick-ian-hill" target="_blank" class="btn btn-outline">Explore on
-                        GitHub</a>
-                </div>
+
+                <h4 class="m-t-4 m-b-4" style="font-size: 1.5rem; color: var(--text-primary); margin-top: 5rem;">
+                    Architectural Approaches</h4>
+                <p class="section-text max-w-xl">
+                    Providing a large set of richly documented tools creates a massive system prompt footprint. I have
+                    explored three repository patterns to optimize tool hydration for LLM agents:
+                </p>
+
+                <ul class="feature-list m-t-4">
+                    <li>
+                        <strong>Standard Architecture:</strong> The baseline approach, registering the entire toolset
+                        natively on initialization.<br>
+                        <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-server" target="_blank"
+                            class="text-blue" style="font-size: 0.9em;">View Repository →</a>
+                    </li>
+                    <li style="margin-top: 1.5rem;">
+                        <strong>Call-Tool Proxy:</strong> A flexible approach exposing only two native tools
+                        (<code>getToolDetails</code> and <code>callTool</code>), acting as an on-demand gateway.<br>
+                        <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-optimized" target="_blank"
+                            class="text-blue" style="font-size: 0.9em;">View Repository →</a>
+                    </li>
+                    <li style="margin-top: 1.5rem;">
+                        <strong>Dynamic Registration:</strong> A cleaner architecture using a single
+                        <code>_setTools</code> tool combined with the MCP <code>list_changed</code> notification to
+                        register native tools dynamically.<br>
+                        <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-dynamic" target="_blank"
+                            class="text-blue" style="font-size: 0.9em;">View Repository →</a>
+                    </li>
+                </ul>
+
             </div>
         </section>
 
@@ -187,8 +218,9 @@
                     <h3 class="section-title">Musical Self-Discovery</h3>
                     <p class="section-text">
                         Beyond the world of AI and enterprise platforms, I create music under the moniker <strong>Nick
-                            Hill</strong>. It's an exploration of experimental, electronic soundscapes—another way of
-                        bridging intentionality and system output.
+                            Hill</strong>. It's an exploration of experimental, electronic soundscapes. Whether I am
+                        organizing instruments in a track or tool calls in a system prompt, my focus remains on the
+                        harmony between intention and output.
                     </p>
                     <a href="https://open.spotify.com/artist/5lrTa8wjxImDk8HFyNfx5L" target="_blank"
                         class="btn btn-outline">Listen on Spotify</a>
