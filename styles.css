@@ -506,10 +506,12 @@ a {
 
 .abstract-visual {
     width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
     opacity: 0.8;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
 
     .container,
     .container-sm {
