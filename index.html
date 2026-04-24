@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gapjumper | Nick Hill - AI Product Management</title>
     <meta name="description"
-        content="Nick Hill: Technical Product Lead specialized in Enterprise AI, Agentic Orchestration, and Human Factors. Ph.D. in Experimental Psychology.">
+        content="Nick Hill: Technical Product Owner specialized in Enterprise AI, Agentic Orchestration, and Human Factors. Ph.D. in Experimental Psychology.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -17,14 +17,14 @@
     <header class="header">
         <div class="container header-inner">
             <a href="#" class="logo">
-                <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="30" font-family="Inter, sans-serif" font-weight="700" font-size="28"
-                        fill="#f472b6">Gap</text>
-                    <text x="56" y="30" font-family="Inter, sans-serif" font-weight="700" font-size="28"
-                        fill="#38bdf8">jumper</text>
-                </svg>
+                <img src="Media/Gapjumper.svg" alt="Gapjumper" width="141">
             </a>
-            <nav class="nav">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="mainNav">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#logic" class="nav-link">AI Insights</a>
                 <a href="enterprise-mcp.html" class="nav-link">Enterprise MCP</a>
@@ -41,7 +41,7 @@
             <div class="container">
                 <h1 class="hero-title">Bridging the Gap between <span class="text-pink">Human Cognition</span> and <span
                         class="text-blue">Agentic AI</span>.</h1>
-                <p class="hero-subtitle">Technical Product Lead | Enterprise AI Architect | Ph.D. Experimental
+                <p class="hero-subtitle">Technical Product Owner | Enterprise AI Architect | Ph.D. Experimental
                     Psychology</p>
                 <div class="hero-cta">
                     <a href="#logic" class="btn btn-primary">The Logic of Assistance</a>
@@ -125,10 +125,13 @@
                 <h2 class="section-tag text-pink">03. Platforms</h2>
                 <h3 class="section-title">The Tridion Sites MCP Server</h3>
                 <p class="section-text max-w-xl">
-                    Building a Model Context Protocol (MCP) server for an enterprise CMS reveals unique challenges. Exposing over 80 specialized tools allows an LLM to navigate complex business rules, but requires careful architecture to avoid overloading the system prompt or context window.
+                    Building a Model Context Protocol (MCP) server for an enterprise CMS reveals unique challenges.
+                    Exposing over 80 specialized tools allows an LLM to navigate complex business rules, but requires
+                    careful architecture to avoid overloading the system prompt or context window.
                 </p>
                 <div class="m-t-2">
-                    <a href="enterprise-mcp.html" class="btn btn-outline" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Deep Dive: Enterprise Patterns →</a>
+                    <a href="enterprise-mcp.html" class="btn btn-outline"
+                        style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Deep Dive: Enterprise Patterns →</a>
                 </div>
 
                 <h4 class="m-t-4 m-b-4" style="font-size: 1.5rem; color: var(--text-primary);">Enterprise MCP Design
@@ -191,22 +194,34 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-meta">
-                            <span class="timeline-date">2008 – Present</span>
+                            <span class="timeline-date">2008 – 2026</span>
                             <span class="timeline-org">RWS (Tridion)</span>
                         </div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Technical Product Lead / Lead Product Manager</h4>
+                            <h4 class="timeline-title">Technical Product Owner</h4>
                             <p>Architecting the AI strategy for Tridion Sites. Bridging product management, UX
                                 architecture, and technical engineering for the next generation of CMS.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-meta">
-                            <span class="timeline-date">Pre-2008</span>
-                            <span class="timeline-org">Academia / Backbase</span>
+                            <span class="timeline-date">2005 – 2008</span>
+                            <span class="timeline-org">Tridion / Backbase</span>
                         </div>
                         <div class="timeline-content">
-                            <p>PhD Research at University of York. Senior UX Architect at Backbase.</p>
+                            <h4 class="timeline-title">UI Developer</h4>
+                            <p>Developing core UI frameworks for enterprise content management and banking platforms.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Pre-2005</span>
+                            <span class="timeline-org">University of Sussex</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">PhD / Lecturer</h4>
+                            <p>PhD Research and Lecturer in Experimental Psychology.</p>
                         </div>
                     </div>
                 </div>
@@ -230,7 +245,7 @@
                 <div class="section-visual">
                     <iframe style="border-radius:12px"
                         src="https://open.spotify.com/embed/artist/5lrTa8wjxImDk8HFyNfx5L?utm_source=generator&theme=0"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        width="100%" height="380" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
@@ -240,12 +255,7 @@
         <footer class="footer">
             <div class="container footer-inner">
                 <div class="footer-logo">
-                    <svg width="120" height="30" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="Inter, sans-serif" font-weight="700" font-size="28"
-                            fill="#f472b6" opacity="0.8">Gap</text>
-                        <text x="56" y="30" font-family="Inter, sans-serif" font-weight="700" font-size="28"
-                            fill="#38bdf8" opacity="0.8">jumper</text>
-                    </svg>
+                    <img src="Media/Gapjumper.svg" alt="Gapjumper" width="104" style="opacity: 0.8;">
                 </div>
                 <div class="footer-contact">
                     <a href="mailto:nick.hill@gapjumper.com">nick.hill@gapjumper.com</a>
