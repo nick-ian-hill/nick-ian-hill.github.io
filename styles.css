@@ -395,12 +395,12 @@ a {
 }
 
 .article-hero {
-    padding: 160px 0 60px;
+    padding: 140px 0 40px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .article-section {
-    padding: 60px 0;
+    padding: 40px 0;
 }
 
 .article-content h2 {

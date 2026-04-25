@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Experience (AX) | Nick Hill</title>
+    <meta name="description"
+        content="Bridging Human Intention and System Complexity: A Concept Study on Agent Experience (AX) in Enterprise CMS.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="Media/Gapjumper.svg" alt="Gapjumper" width="141">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="mainNav">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="enterprise-mcp.html" class="nav-link">Enterprise MCP</a>
+                <a href="agent-experience.html" class="nav-link active" style="color: var(--accent-blue);">Agent Experience</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="Nick Hill - Resume.pdf" class="nav-cta" download>CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="article-content">
+            <section class="article-hero">
+                <div class="container-sm">
+                    <a href="index.html" class="back-link">← Back to Overview</a>
+                    <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem;">Agent
+                        <span class="text-pink">Experience (AX)</span></h1>
+                    <p class="section-text" style="font-size: 1.4rem; max-width: 100%;">Designing intuitive, AI-driven workflows for complex enterprise systems.</p>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <div class="container-sm">
+                    <p>Enterprise Content Management Systems (CMS) are powerful platforms capable of managing vast networks of content. However, this power inherently introduces complexity, creating distinct friction points for different types of users. <strong>Agent Experience (AX)</strong> shifts the cognitive load from <em>operating the system</em> to <em>expressing intent</em>.</p>
+                    
+                    <div style="margin: 3rem 0;">
+                        <h3>Workflow Enhancements</h3>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 2rem;">
+                            <li style="margin-bottom: 0.5rem;"><strong>The Occasional User:</strong> For users who only interact sporadically, the steep learning curve is a barrier. Remembering the precise steps to update a specific page can be daunting.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>The Power User:</strong> Experienced editors often get bogged down by tedious, repetitive workflows—such as manually duplicating a suite of pages or performing repetitive content updates.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>The Organizational Bottleneck:</strong> Organizations burn valuable editorial time on mechanical tasks like tagging taxonomy, generating image alt-text, or managing translation drops.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>The Reporting Constraint:</strong> Extracting comprehensive data from a traditional REST API requires a massive volume of individual calls. While automating this collation via AI remains technically inefficient, the high business value of the resulting analysis makes the trade-off worthwhile.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 3rem 0;">
+                        <h3>The Human Intention</h3>
+                        <p>Instead of clicking through complex BluePrint hierarchies or cross-referencing schemas, the user's intent should be articulated simply in natural language:</p>
+                        <blockquote style="margin-top: 1rem; margin-bottom: 1rem;">
+                            "Help me update this campaign page, or better yet, just do it for me."<br><br>
+                            "Create draft copies of these five pages and swap out the header images."<br><br>
+                            "Audit this folder and generate alt-text for all images currently missing descriptions."
+                        </blockquote>
+                    </div>
+
+                    <div style="margin: 3rem 0;">
+                        <h3>The Agentic Architecture</h3>
+                        <p>To translate these simple intentions into reliable system actions, I architected a dedicated Model Context Protocol (MCP) server and an accompanying UI Agent client.</p>
+
+                        <div class="pattern-card" style="margin-top: 2rem;">
+                            <h4>Architecture 01</h4>
+                            <h3>The Dedicated UI Agent Client</h3>
+                            <p>To seamlessly integrate natural language into the CMS interface, I developed a custom Gemini-powered Agent API that sits between the web UI and the MCP server. It manages multi-step task execution, conversational history, and long-polling events.</p>
+                            <p>Crucially, it utilizes <strong>AgentContext</strong>: passing the user's current UI state (selected folders, open items) directly to the model. This allows the user to say "update <em>this</em> item" without explicitly citing complex URIs. Furthermore, the agent can emit <strong>UI Actions</strong> (e.g., <code>requestNavigation</code>), allowing the AI to physically drive the UI and navigate the user to the newly created content.</p>
+                            <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-server/tree/main/src/agent" target="_blank" class="text-blue" style="display: inline-block; margin-top: 0.5rem;">View Agent Client Repo →</a>
+                        </div>
+
+                        <div class="pattern-card">
+                            <h4>Architecture 02</h4>
+                            <h3>High-Throughput Tool Orchestration</h3>
+                            <p>For complex bulk actions and reporting, standard LLM step-by-step execution is too slow and fragile. To resolve this, I developed the <code>toolOrchestrator</code>. The LLM generates a sandboxed JavaScript script utilizing loops and batch processing, which executes natively on the server. This allows massive reports to be compiled or hundreds of pages to be updated reliably.</p>
+                        </div>
+
+                        <div class="pattern-card">
+                            <h4>Architecture 03</h4>
+                            <h3>JIT Hydration & Future-Proofing</h3>
+                            <p>While modern LLMs can comfortably handle the 80+ complex API tools exposed by the CMS, enterprise environments rarely operate in isolation. To ensure the CMS MCP server can be seamlessly integrated into broader customer setups, I developed two specialized hydration patterns: <strong>Dynamic Registration</strong> (for architectural purity) and an <strong>Optimized Proxy</strong> (for broader client compatibility). These patterns utilize "discovery handshakes" to request specific tools just-in-time, optimizing the system prompt footprint while significantly reducing token costs and latency.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin: 3rem 0; border-top: 1px solid var(--border-color); padding-top: 3rem;">
+                        <h3>See It In Action</h3>
+                        <p style="margin-bottom: 2rem;">Watch the internal concept demonstrations of the Agent Assistant driving the UI and executing complex orchestrations.</p>
+                        
+                        <div class="grid col-2">
+                            <div class="card">
+                                <h4 class="card-title">Content Assistant Demo</h4>
+                                <p class="card-text" style="margin-bottom: 1.5rem;">Agentic AI integration directly within the Tridion UI, leveraging AgentContext and UI Actions.</p>
+                                <a href="https://drive.google.com/file/d/1m6q9JKFM-xRsma77uS-lG1f06rWkImeQ/view?usp=drive_link" target="_blank" class="nav-cta" style="display: inline-block; text-align: center; width: 100%; margin-top: auto;">Watch Video</a>
+                            </div>
+                            <div class="card">
+                                <h4 class="card-title">Dashboard & Orchestration</h4>
+                                <p class="card-text" style="margin-bottom: 1.5rem;">AI-assisted reporting, data visualization, and bulk operations using the tool orchestrator.</p>
+                                <a href="https://drive.google.com/file/d/1_nXNc7vvsw1zum2jmiMLq82EfIChjzm-/view?usp=drive_link" target="_blank" class="nav-cta" style="display: inline-block; text-align: center; width: 100%; margin-top: auto;">Watch Video</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </article>
+
+        <footer class="footer">
+            <div class="container footer-inner">
+                <div class="footer-logo">
+                    <img src="Media/Gapjumper.svg" alt="Gapjumper" width="104" style="opacity: 0.8;">
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:nick.hill@gapjumper.com">nick.hill@gapjumper.com</a>
+                    <span>&copy; 2026 Gapjumper / Nick Hill</span>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/nick-hill-7a7918400" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/nick-ian-hill" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
