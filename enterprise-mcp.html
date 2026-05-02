@@ -26,7 +26,8 @@
             </button>
             <nav class="nav" id="mainNav">
                 <a href="index.html#about" class="nav-link">About</a>
-                <a href="enterprise-mcp.html" class="nav-link active" style="color: var(--accent-blue);">Enterprise MCP</a>
+                <a href="enterprise-mcp.html" class="nav-link active" style="color: var(--accent-blue);">Enterprise
+                    MCP</a>
                 <a href="agent-experience.html" class="nav-link">Agent Experience</a>
                 <a href="psychoacoustic-lab.html" class="nav-link">Psychoacoustic Lab</a>
                 <a href="index.html#experience" class="nav-link">Experience</a>
@@ -41,7 +42,8 @@
                 <div class="container-sm">
                     <a href="index.html" class="back-link">← Back to Overview</a>
                     <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem;">Mastering
-                        <span class="text-pink">Enterprise MCP</span></h1>
+                        <span class="text-pink">Enterprise MCP</span>
+                    </h1>
                     <p class="section-text" style="font-size: 1.4rem; max-width: 100%;">Architecting Scalable AI
                         Integrations for Complex Systems.</p>
                 </div>
@@ -49,67 +51,107 @@
 
             <section class="article-section">
                 <div class="container-sm">
-                    <p>Building a Model Context Protocol (MCP) server for a personal project is straightforward. Building one for an enterprise system like <strong>Tridion Sites</strong>—with over 80 discrete tools, complex inheritance models (BluePrinting), and strict governance—is an entirely different engineering challenge.</p>
-                    
-                    <p>The following five patterns have emerged from my work as "portable" solutions for any developer or organization facing the information density and scale limits of modern LLMs.</p>
+                    <p>Building a Model Context Protocol (MCP) server for a personal project is straightforward.
+                        Building one for an enterprise system like <strong>Tridion Sites</strong> – with over 80
+                        discrete tools, complex inheritance models (BluePrinting), and strict governance – is an
+                        entirely different engineering challenge.</p>
+
+                    <p>The following five patterns have emerged from my work as "portable" solutions for any developer
+                        or organization facing the information density and scale limits of modern LLMs.</p>
 
                     <div class="pattern-card">
                         <h4>Pattern 01</h4>
                         <h3>The Semantic Bridge</h3>
-                        <p>In enterprise systems, business rules are rarely explicit in the code. A "Delete Page" operation might have hidden side effects like unpublishing dependencies or breaking localizations. AI agents cannot guess these rules; they must be taught them through <strong>high-fidelity tool documentation</strong>.</p>
-                        <p>By providing concrete examples and detailed parameter descriptions, we bridge the gap between "System Prompt" and "Business Logic," preventing hallucinations in high-stakes environments.</p>
+                        <p>In enterprise systems, business rules are rarely explicit in the code. A "Delete Page"
+                            operation might have hidden side effects like unpublishing dependencies or breaking
+                            localizations. AI agents cannot guess these rules; they must be taught them through
+                            <strong>high-fidelity tool documentation</strong>.
+                        </p>
+                        <p>By providing concrete examples and detailed parameter descriptions, we bridge the gap between
+                            "System Prompt" and "Business Logic," preventing hallucinations in high-stakes environments.
+                        </p>
                     </div>
 
                     <div class="pattern-card">
                         <h4>Pattern 02</h4>
                         <h3>Find-Then-Fetch</h3>
-                        <p>Standard REST APIs are often "chatty" and return massive JSON payloads. In an MCP environment, returning an entire object graph quickly exhausts the LLM’s context window and inflates token costs.</p>
+                        <p>Standard REST APIs are often "chatty" and return massive JSON payloads. In an MCP
+                            environment, returning an entire object graph quickly exhausts the LLM’s context window and
+                            inflates token costs.</p>
                         <blockquote>
-                            "The goal isn't to give the AI all the data, but the specific data required for the next step."
+                            "The goal isn't to give the AI all the data, but the specific data required for the next
+                            step."
                         </blockquote>
-                        <p>We solve this by implementing an <code>includeProperties</code> array in fetch tools. This allows the agent to perform an initial discovery (search) and then selectively retrieve only the fields it needs (e.g., just the <code>title</code> and <code>publishDate</code>) for its current task.</p>
+                        <p>We solve this by implementing an <code>includeProperties</code> array in fetch tools. This
+                            allows the agent to perform an initial discovery (search) and then selectively retrieve only
+                            the fields it needs (e.g., just the <code>title</code> and <code>publishDate</code>) for its
+                            current task.</p>
                     </div>
 
                     <div class="pattern-card">
                         <h4>Pattern 03</h4>
                         <h3>Server-Side Orchestration</h3>
-                        <p>If an agent needs to audit 5,000 pages, calling 5,000 discrete MCP tools from a client (like Claude or Gemini) creates massive latency and cost. The round-trip overhead becomes the bottleneck.</p>
-                        <p>My solution is a <strong>Tool Orchestrator</strong>—a server-side script engine. The LLM generates a Javascript-based script that executes directly on the MCP server. This allows for high-frequency execution loops without flooding the network or the context window.</p>
+                        <p>If an agent needs to audit 5,000 pages, calling 5,000 discrete MCP tools from a client (like
+                            Claude or Gemini) creates massive latency and cost. The round-trip overhead becomes the
+                            bottleneck.</p>
+                        <p>My solution is a <strong>Tool Orchestrator</strong> that functions as a server-side script
+                            engine. The LLM generates a Javascript-based script that executes directly on the MCP
+                            server.
+                            This allows for high-frequency execution loops without flooding the network or the context
+                            window.</p>
                     </div>
 
                     <div class="pattern-card">
                         <h4>Pattern 04</h4>
                         <h3>Embedded AI Intelligence</h3>
-                        <p>While server-side scripts are fast, they are often "dumb" loops. To handle complex semantic tasks—like auto-classifying content or generating alt text for images—the loop needs intelligence.</p>
-                        <p>I have pioneered the use of <strong>AI-enabled tools within the orchestrator</strong>. This allows the server-side script to call another LLM instance (via tools like <code>autoClassifyItem</code>) for every iteration of the loop, providing semantic judgment at massive scale without returning control to the primary agent.</p>
+                        <p>While server-side scripts are fast, they are often "dumb" loops. To handle complex semantic
+                            tasks, like auto-classifying content or generating alt text for images, the loop needs
+                            intelligence.</p>
+                        <p>I have pioneered the use of <strong>AI-enabled tools within the orchestrator</strong>. This
+                            allows the server-side script to call another LLM instance (via tools like
+                            <code>autoClassifyItem</code>) for every iteration of the loop, providing semantic judgment
+                            at massive scale without returning control to the primary agent.
+                        </p>
                     </div>
 
                     <div class="pattern-card">
                         <h4>Pattern 05</h4>
                         <h3>Dynamic Hydration</h3>
-                        <p>Advertising 80+ tools in a single system prompt is an "anti-pattern" for enterprise scale. It wastes thousands of tokens and confuses the agent’s reasoning capability.</p>
+                        <p>Advertising 80+ tools in a single system prompt is an "anti-pattern" for enterprise scale. It
+                            wastes thousands of tokens and confuses the agent’s reasoning capability.</p>
                         <p>I’ve explored two "Just-In-Time" (JIT) methods to manage this:</p>
                         <ul>
-                            <li><strong>Call-Tool Proxy</strong>: A gateway where only two tools (<code>getToolDetails</code> and <code>callTool</code>) are exposed natively.</li>
-                            <li><strong>_setTools Protocol</strong>: A mechanism that dynamically registers and unregisters native MCP tools based on the current task, using the <code>list_changed</code> notification.</li>
+                            <li><strong>Call-Tool Proxy</strong>: A gateway where only two tools
+                                (<code>getToolDetails</code> and <code>callTool</code>) are exposed natively.</li>
+                            <li><strong>_setTools Protocol</strong>: A mechanism that dynamically registers and
+                                unregisters native MCP tools based on the current task, using the
+                                <code>list_changed</code> notification.
+                            </li>
                         </ul>
                     </div>
 
                     <h2>Conclusion</h2>
-                    <p>The Tridion Sites MCP implementation serves as a blueprint for any enterprise system looking to become "Agent Friendly." By focusing on semantic clarity, context optimization, and server-side execution, we turn complex repositories into intelligent ecosystems.</p>
-                    
+                    <p>The Tridion Sites MCP implementation serves as a blueprint for any enterprise system looking to
+                        become "Agent Friendly." By focusing on semantic clarity, context optimization, and server-side
+                        execution, we turn complex repositories into intelligent ecosystems.</p>
+
                     <div class="m-t-4" style="border-top: 1px solid var(--border-color); padding-top: 3rem;">
                         <h3>Explore the Reference Implementations</h3>
                         <div class="grid col-2 m-t-2">
                             <div class="card">
                                 <h4 class="card-title">Dynamic MCP</h4>
-                                <p class="card-text">Cleaner architecture using dynamic tool registration and hydration.</p>
-                                <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-dynamic" target="_blank" class="text-blue" style="display: block; margin-top: auto; padding-top: 1rem;">Code Repo →</a>
+                                <p class="card-text">Cleaner architecture using dynamic tool registration and hydration.
+                                </p>
+                                <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-dynamic" target="_blank"
+                                    class="text-blue" style="display: block; margin-top: auto; padding-top: 1rem;">Code
+                                    Repo →</a>
                             </div>
                             <div class="card">
                                 <h4 class="card-title">Optimized Proxy</h4>
                                 <p class="card-text">A flexible gateway approach for cross-client compatibility.</p>
-                                <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-optimized" target="_blank" class="text-blue" style="display: block; margin-top: auto; padding-top: 1rem;">Code Repo →</a>
+                                <a href="https://github.com/nick-ian-hill/tridion-sites-mcp-optimized" target="_blank"
+                                    class="text-blue" style="display: block; margin-top: auto; padding-top: 1rem;">Code
+                                    Repo →</a>
                             </div>
                         </div>
                     </div>
