@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychoacoustic Lab | Nick Hill</title>
+    <meta name="description"
+        content="Equipping AI with domain expertise: A deep dive into the Psychoacoustic Lab, Web Audio synthesis, and AI Lab Assistants.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Psychoacoustic Lab Runner -->
+    <script type="module" src="https://nick-ian-hill.github.io/psychoacoustic-lab/psychoacoustic-runner.js"></script>
+    <style>
+        /* Theming the embedded runner to match the site */
+        psychoacoustic-app {
+            --psycho-accent: var(--accent-blue);
+            --psycho-bg: var(--bg-midnight);
+            --psycho-panel-bg: var(--bg-midnight-soft);
+            --psycho-text: var(--text-primary);
+            --psycho-text-muted: var(--text-secondary);
+            --psycho-border: var(--border-color);
+            --psycho-radius: 8px;
+            --psycho-font-family: 'Inter', sans-serif;
+            display: block;
+            margin: 2rem 0;
+            min-height: 600px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="Media/Gapjumper.svg" alt="Gapjumper" width="141">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="mainNav">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="enterprise-mcp.html" class="nav-link">Enterprise MCP</a>
+                <a href="agent-experience.html" class="nav-link">Agent Experience</a>
+                <a href="psychoacoustic-lab.html" class="nav-link active"
+                    style="color: var(--accent-blue);">Psychoacoustic Lab</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="Nick Hill - Resume.pdf" class="nav-cta" download>CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="article-content">
+            <section class="article-hero">
+                <div class="container-sm">
+                    <a href="index.html" class="back-link">← Back to Overview</a>
+                    <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem;">
+                        Psychoacoustic
+                        <span class="text-pink">Lab</span>
+                    </h1>
+                    <p class="section-text" style="font-size: 1.4rem; max-width: 100%;">Bridging Experimental
+                        Psychology, High-Performance Audio, and AI Orchestration.</p>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <div class="container-sm">
+                    <p>The <strong>Psychoacoustic Lab</strong> is a multi-disciplinary project designed to demonstrate
+                        how specialized domain knowledge can be encoded into AI systems. It combines a high-performance
+                        Web Audio synthesis engine with an AI-driven configuration layer, allowing for the rapid design
+                        and execution of rigorous auditory experiments.</p>
+
+                    <div class="pattern-card">
+                        <h4>Capability 01</h4>
+                        <h3>Scientific Rigor & Validation</h3>
+                        <p>The lab is built on a foundation of rigorous automated testing that extends far beyond basic
+                            DSP math. Every aspect of the experimental pipeline is verified to ensure scientific
+                            integrity:</p>
+                        <ul class="feature-list" style="margin-top: 1rem;">
+                            <li><strong>Adaptive Logic:</strong> Unit tests verify that the
+                                <code>StaircaseController</code> precisely follows Levitt-style rules (e.g., 2-down
+                                1-up), including correct step-size reductions and threshold calculations.</li>
+                            <li><strong>Robot Observers:</strong> Automated "observers" with pre-defined psychometric
+                                functions simulate hundreds of trials to verify that adaptive procedures converge to the
+                                correct theoretical thresholds.</li>
+                            <li><strong>Statistical Uniformity:</strong> Large-scale simulations confirm that random
+                                perturbations (like loudness and frequency roving) follow the intended statistical
+                                distributions (e.g., uniform rectangular roving).</li>
+                            <li><strong>Temporal Precision:</strong> Tests validate sample-accurate timing for
+                                Inter-Stimulus Intervals (ISI) and global envelopes, preventing unintended onset/offset
+                                clicks that could serve as non-auditory cues.</li>
+                        </ul>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h4>Capability 02</h4>
+                        <h3>AI Collaboration via Skills</h3>
+                        <p>While the engine is "dumb," the design process is "smart." By utilizing <strong>AI
+                                Skills</strong> (specialized packages of knowledge and workflows), a general-purpose LLM
+                            is transformed into a domain-expert Lab Assistant.</p>
+                        <p>These Skills (such as <code>psychoacoustic-designer</code>) equip the agent with "empirical
+                            yardsticks"—grounding its suggestions in seminal literature (e.g., Levitt, 1971; Green,
+                            1988). The agent doesn't just generate JSON; it understands <strong>confound
+                                control</strong>, automatically suggesting frequency and loudness roving to ensure the
+                            participant is responding to the intended cue.</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h4>Capability 03</h4>
+                        <h3>Model Context Protocol (MCP)</h3>
+                        <p>The optional <strong>MCP Server</strong> provides the agent with a dedicated toolkit for
+                            stimulus math. Instead of the LLM attempting to calculate complex ERB-spaced frequencies or
+                            Schroeder phases (which are prone to arithmetic errors), it delegates these tasks to the MCP
+                            server. This "Smart Server" architecture ensures that the resulting experiment
+                            configurations are mathematically perfect and scientifically sound.</p>
+                    </div>
+
+                    <h2>Experience the Lab</h2>
+                    <p>The runner below is the actual Web Audio engine used in the project. It is embedded here as a
+                        custom web component, demonstrating how easily the lab can be integrated into research portals
+                        or educational platforms.</p>
+
+                    <!-- Embedded Lab Runner -->
+                    <psychoacoustic-app></psychoacoustic-app>
+
+                    <div class="m-t-4" style="border-top: 1px solid var(--border-color); padding-top: 3rem;">
+                        <h3>Explore the Project</h3>
+                        <div class="grid col-2 m-t-2">
+                            <div class="card">
+                                <h4 class="card-title">Lab Runner</h4>
+                                <p class="card-text">The high-performance Web Audio engine and experiment runner.</p>
+                                <a href="https://github.com/nick-ian-hill/psychoacoustic-lab" target="_blank"
+                                    class="text-blue" style="display: block; margin-top: auto; padding-top: 1rem;">View
+                                    Repository →</a>
+                            </div>
+                            <div class="card">
+                                <h4 class="card-title">Lab Skills</h4>
+                                <p class="card-text">The AI Skills and MCP server that power the agentic lab assistant.
+                                </p>
+                                <a href="https://github.com/nick-ian-hill/psychoacoustic-lab/tree/main/mcp-server"
+                                    target="_blank" class="text-blue"
+                                    style="display: block; margin-top: auto; padding-top: 1rem;">View MCP Repo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <footer class="footer">
+            <div class="container footer-inner">
+                <div class="footer-logo">
+                    <img src="Media/Gapjumper.svg" alt="Gapjumper" width="104" style="opacity: 0.8;">
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:nick.hill@gapjumper.com">nick.hill@gapjumper.com</a>
+                    <span>&copy; 2026 Gapjumper / Nick Hill</span>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/nick-hill-7a7918400" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/nick-ian-hill" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
