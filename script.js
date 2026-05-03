@@ -50,6 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Image Zoom Logic
+    const zoomableImages = document.querySelectorAll('.zoomable');
+    if (zoomableImages.length > 0) {
+        const overlay = document.createElement('div');
+        overlay.className = 'zoom-overlay';
+        overlay.innerHTML = '<img src="" alt="Zoomed View">';
+        document.body.appendChild(overlay);
+
+        const overlayImg = overlay.querySelector('img');
+
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                overlayImg.src = img.src;
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+    }
 });
 
 // Add Reveal CSS dynamically
