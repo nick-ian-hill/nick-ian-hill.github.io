@@ -92,9 +92,9 @@
                             <li><strong>Robot Observers:</strong> Automated "observers" with pre-defined psychometric
                                 functions simulate hundreds of trials to verify that adaptive procedures converge to the
                                 correct theoretical thresholds.</li>
-                            <li><strong>Statistical Uniformity:</strong> Large-scale simulations confirm that random
-                                perturbations (like loudness and frequency roving) follow the intended statistical
-                                distributions (e.g., uniform rectangular roving).</li>
+                            <li><strong>Sequence Control:</strong> The engine supports hierarchical block randomization
+                                and counterbalancing, ensuring that order effects (like learning or fatigue) are
+                                controlled across experimental conditions.</li>
                             <li><strong>Temporal Precision:</strong> Tests validate sample-accurate timing for
                                 Inter-Stimulus Intervals (ISI) and global envelopes, preventing unwanted clicks or
                                 transients that could distract the user or provide confounding cues.</li>
@@ -112,6 +112,13 @@
                             1988). The agent doesn't just generate JSON; it understands <strong>confound
                                 control</strong>, automatically suggesting frequency and loudness roving to ensure the
                             participant is responding to the intended cue.</p>
+
+                        <div style="margin-top: 2rem; background: var(--bg-midnight-soft); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
+                            <img src="Media/AgentPlan.png" alt="Gemini CLI Agentic Workflow" style="width: 100%; height: auto; display: block; opacity: 0.9;">
+                            <div style="padding: 1rem; border-top: 1px solid var(--border-color);">
+                                <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;"><strong>Agentic Workflow:</strong> The Gemini CLI, powered by specialized MCP tools and Psychoacoustic Skills, helps a researcher design a complex experiment through a collaborative, multi-step dialogue.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="pattern-card">
@@ -122,6 +129,17 @@
                             Schroeder phases (which are prone to arithmetic errors), it delegates these tasks to the MCP
                             server. This "Smart Server" architecture ensures that the resulting experiment
                             configurations are mathematically perfect and scientifically sound.</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h4>Capability 04</h4>
+                        <h3>Industrial-Grade Data Integrity</h3>
+                        <p>For large-scale research studies, data loss is not an option. The lab includes advanced resilience features designed to protect every trial:</p>
+                        <ul class="feature-list" style="margin-top: 1rem;">
+                            <li><strong>Automatic Backups:</strong> With <code>autoSave</code> enabled, progress is incrementally saved to local storage, allowing participants to resume exactly where they left off after a crash or accidental exit.</li>
+                            <li><strong>Progressive Saving:</strong> Real-time lifecycle events allow integrators to stream results to their own servers as each block is completed, ensuring data capture even if a session is never finalized.</li>
+                            <li><strong>Seeded Reproducibility:</strong> Every session utilizes a master seed, ensuring that randomized sequences remain consistent across recovery events and are fully auditable after the study.</li>
+                        </ul>
                     </div>
 
                     <h2>Experience the Lab</h2>
