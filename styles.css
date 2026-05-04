@@ -10,6 +10,32 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.1);
+    border-radius: 20px;
+    border: 3px solid var(--bg-midnight);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.3);
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.2) transparent;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -460,16 +486,18 @@ a {
     background: #0b1120;
     padding: 1.5rem;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: 8px;
     margin: 2rem 0;
-    overflow-x: auto;
+    overflow: auto;
+    max-height: 600px;
 }
 
 .code-block pre {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #f8fafc;
 }
 
 .pattern-card {
@@ -641,6 +669,16 @@ a {
 
     .visual-label {
         font-size: 20px; /* Adjusted to balance legibility and space with two-line layout */
+    }
+
+    .code-block {
+        max-height: 400px;
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .code-block pre {
+        font-size: 0.75rem;
     }
 }
 

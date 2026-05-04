@@ -113,10 +113,15 @@
                                 control</strong>, automatically suggesting frequency and loudness roving to ensure the
                             participant is responding to the intended cue.</p>
 
-                        <div style="margin-top: 2rem; background: var(--bg-midnight-soft); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
-                            <img src="Media/AgentPlan.png" alt="Gemini CLI Agentic Workflow" class="zoomable" style="width: 100%; height: auto; display: block; opacity: 0.9;">
+                        <div
+                            style="margin-top: 2rem; background: var(--bg-midnight-soft); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
+                            <img src="Media/AgentPlan.png" alt="Gemini CLI Agentic Workflow" class="zoomable"
+                                style="width: 100%; height: auto; display: block; opacity: 0.9;">
                             <div style="padding: 1rem; border-top: 1px solid var(--border-color);">
-                                <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;"><strong>Agentic Workflow:</strong> The Gemini CLI, powered by specialized MCP tools and Psychoacoustic Skills, helps a researcher design a complex experiment through a collaborative, multi-step dialogue.</p>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;"><strong>Agentic
+                                        Workflow:</strong> The Gemini CLI, powered by specialized MCP tools and
+                                    Psychoacoustic Skills, helps a researcher design a complex experiment through a
+                                    collaborative, multi-step dialogue.</p>
                             </div>
                         </div>
                     </div>
@@ -134,11 +139,18 @@
                     <div class="pattern-card">
                         <h4>Capability 04</h4>
                         <h3>Industrial-Grade Data Integrity</h3>
-                        <p>For large-scale research studies, data loss is not an option. The lab includes advanced resilience features designed to protect every trial:</p>
+                        <p>For large-scale research studies, data loss is not an option. The lab includes advanced
+                            resilience features designed to protect every trial:</p>
                         <ul class="feature-list" style="margin-top: 1rem;">
-                            <li><strong>Automatic Backups:</strong> With <code>autoSave</code> enabled, progress is incrementally saved to local storage, allowing participants to resume exactly where they left off after a crash or accidental exit.</li>
-                            <li><strong>Progressive Saving:</strong> Real-time lifecycle events allow integrators to stream results to their own servers as each block is completed, ensuring data capture even if a session is never finalized.</li>
-                            <li><strong>Seeded Reproducibility:</strong> Every session utilizes a master seed, ensuring that randomized sequences remain consistent across recovery events and are fully auditable after the study.</li>
+                            <li><strong>Automatic Backups:</strong> With <code>autoSave</code> enabled, progress is
+                                incrementally saved to local storage, allowing participants to resume exactly where they
+                                left off after a crash or accidental exit.</li>
+                            <li><strong>Progressive Saving:</strong> Real-time lifecycle events allow integrators to
+                                stream results to their own servers as each block is completed, ensuring data capture
+                                even if a session is never finalized.</li>
+                            <li><strong>Seeded Reproducibility:</strong> Every session utilizes a master seed, ensuring
+                                that randomized sequences remain consistent across recovery events and are fully
+                                auditable after the study.</li>
                         </ul>
                     </div>
 
@@ -150,7 +162,158 @@
                     <!-- Embedded Lab Runner -->
                     <psychoacoustic-app></psychoacoustic-app>
 
-                    <div class="m-t-2">
+                    <div style="margin-top: 4rem;">
+                        <h2>Experiment Configuration Schema</h2>
+                        <p>The following configuration defines a <strong>Relative Frequency Discrimination</strong>
+                            experiment. It showcases the platform's ability to handle complex 4I-2AFC paradigms with
+                            anchored intervals, multi-component harmonic stimuli, and adaptive geometric staircases.</p>
+
+                        <div class="code-block">
+                            <pre><span style="color: #94a3b8;">{</span>
+  <span style="color: #f472b6;">"meta"</span>: <span style="color: #94a3b8;">{</span>
+    <span style="color: #f472b6;">"name"</span>: <span style="color: #38bdf8;">"Relative Freq Discrimination"</span>,
+    <span style="color: #f472b6;">"version"</span>: <span style="color: #38bdf8;">"1.1.0"</span>,
+    <span style="color: #f472b6;">"seed"</span>: <span style="color: #fbbf24;">42</span>,
+    <span style="color: #f472b6;">"autoSave"</span>: <span style="color: #fbbf24;">true</span>,
+    <span style="color: #f472b6;">"summary"</span>: <span style="color: #38bdf8;">"Identify the mistuned 4th component in harmonic vs. stretched complexes."</span>,
+    <span style="color: #f472b6;">"description"</span>: <span style="color: #38bdf8;">"This experiment measures your sensitivity to frequency shifts within a complex tone..."</span>,
+    <span style="color: #f472b6;">"rationale"</span>: <span style="color: #38bdf8;">"Comparing discrimination thresholds in harmonic vs. inharmonic contexts..."</span>
+  <span style="color: #94a3b8;">}</span>,
+  <span style="color: #f472b6;">"blocks"</span>: <span style="color: #94a3b8;">[</span>
+    <span style="color: #94a3b8;">{</span>
+      <span style="color: #f472b6;">"id"</span>: <span style="color: #38bdf8;">"harmonic"</span>,
+      <span style="color: #f472b6;">"feedback"</span>: <span style="color: #fbbf24;">true</span>,
+      <span style="color: #f472b6;">"meta"</span>: <span style="color: #94a3b8;">{</span>
+        <span style="color: #f472b6;">"summary"</span>: <span style="color: #38bdf8;">"HARMONIC CONTEXT: Select the interval where the 4th tone sounds different."</span>,
+        <span style="color: #f472b6;">"description"</span>: <span style="color: #38bdf8;">"The first and last sounds are anchors..."</span>
+      <span style="color: #94a3b8;">}</span>,
+      <span style="color: #f472b6;">"paradigm"</span>: <span style="color: #94a3b8;">{</span>
+        <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"m-AFC"</span>,
+        <span style="color: #f472b6;">"intervals"</span>: <span style="color: #94a3b8;">[</span>
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"reference"</span>, <span style="color: #f472b6;">"fixed"</span>: <span style="color: #fbbf24;">true</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">false</span> <span style="color: #94a3b8;">}</span>,
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"reference"</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">true</span> <span style="color: #94a3b8;">}</span>,
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"target"</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">true</span> <span style="color: #94a3b8;">}</span>,
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"reference"</span>, <span style="color: #f472b6;">"fixed"</span>: <span style="color: #fbbf24;">true</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">false</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">]</span>,
+        <span style="color: #f472b6;">"randomizeOrder"</span>: <span style="color: #fbbf24;">true</span>,
+        <span style="color: #f472b6;">"timing"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"isiMs"</span>: <span style="color: #fbbf24;">500</span>, <span style="color: #f472b6;">"itiMs"</span>: <span style="color: #fbbf24;">1000</span> <span style="color: #94a3b8;">}</span>
+      <span style="color: #94a3b8;">}</span>,
+      <span style="color: #f472b6;">"stimuli"</span>: <span style="color: #94a3b8;">[</span>
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"multi_component"</span>,
+          <span style="color: #f472b6;">"components"</span>: <span style="color: #94a3b8;">[</span>
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">200</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">400</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">600</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">800</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">1000</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">1200</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">1400</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>
+          <span style="color: #94a3b8;">]</span>,
+          <span style="color: #f472b6;">"durationMs"</span>: <span style="color: #fbbf24;">400</span>,
+          <span style="color: #f472b6;">"globalEnvelope"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"attackMs"</span>: <span style="color: #fbbf24;">50</span>, <span style="color: #f472b6;">"releaseMs"</span>: <span style="color: #fbbf24;">50</span>, <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"cosine"</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>
+      <span style="color: #94a3b8;">]</span>,
+      <span style="color: #f472b6;">"perturbations"</span>: <span style="color: #94a3b8;">[</span>
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"mistuning"</span>,
+          <span style="color: #f472b6;">"applyTo"</span>: <span style="color: #38bdf8;">"all"</span>,
+          <span style="color: #f472b6;">"deltaPercent"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"uniform"</span>, <span style="color: #f472b6;">"min"</span>: <span style="color: #fbbf24;">-10</span>, <span style="color: #f472b6;">"max"</span>: <span style="color: #fbbf24;">10</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>,
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"phase_shift"</span>,
+          <span style="color: #f472b6;">"applyTo"</span>: <span style="color: #38bdf8;">"all"</span>,
+          <span style="color: #f472b6;">"deltaDegrees"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"uniform"</span>, <span style="color: #f472b6;">"min"</span>: <span style="color: #fbbf24;">0</span>, <span style="color: #f472b6;">"max"</span>: <span style="color: #fbbf24;">360</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>,
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"mistuning"</span>,
+          <span style="color: #f472b6;">"targetFrequency"</span>: <span style="color: #fbbf24;">800</span>,
+          <span style="color: #f472b6;">"deltaPercent"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"adaptive"</span>: <span style="color: #fbbf24;">true</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>
+      <span style="color: #94a3b8;">]</span>,
+      <span style="color: #f472b6;">"adaptive"</span>: <span style="color: #94a3b8;">{</span>
+        <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"staircase"</span>,
+        <span style="color: #f472b6;">"parameter"</span>: <span style="color: #38bdf8;">"perturbations[3].deltaPercent"</span>,
+        <span style="color: #f472b6;">"initialValue"</span>: <span style="color: #fbbf24;">4</span>,
+        <span style="color: #f472b6;">"stepType"</span>: <span style="color: #38bdf8;">"geometric"</span>,
+        <span style="color: #f472b6;">"stepSizes"</span>: <span style="color: #94a3b8;">[</span><span style="color: #fbbf24;">2</span>, <span style="color: #fbbf24;">1.414</span>, <span style="color: #fbbf24;">1.189</span><span style="color: #94a3b8;">]</span>,
+        <span style="color: #f472b6;">"rule"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"correctDown"</span>: <span style="color: #fbbf24;">3</span> <span style="color: #94a3b8;">}</span>,
+        <span style="color: #f472b6;">"minValue"</span>: <span style="color: #fbbf24;">0.01</span>,
+        <span style="color: #f472b6;">"maxValue"</span>: <span style="color: #fbbf24;">50</span>,
+        <span style="color: #f472b6;">"unit"</span>: <span style="color: #38bdf8;">"%"</span>
+      <span style="color: #94a3b8;">}</span>,
+      <span style="color: #f472b6;">"termination"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"reversals"</span>: <span style="color: #fbbf24;">12</span> <span style="color: #94a3b8;">}</span>
+    <span style="color: #94a3b8;">}</span>,
+    <span style="color: #94a3b8;">{</span>
+      <span style="color: #f472b6;">"id"</span>: <span style="color: #38bdf8;">"stretched"</span>,
+      <span style="color: #f472b6;">"feedback"</span>: <span style="color: #fbbf24;">true</span>,
+      <span style="color: #f472b6;">"meta"</span>: <span style="color: #94a3b8;">{</span>
+        <span style="color: #f472b6;">"summary"</span>: <span style="color: #38bdf8;">"STRETCHED CONTEXT: Select the interval where the 4th tone sounds different."</span>,
+        <span style="color: #f472b6;">"description"</span>: <span style="color: #38bdf8;">"Similar to the previous block, but the base tone is now 'stretched' and inharmonic."</span>
+      <span style="color: #94a3b8;">}</span>,
+      <span style="color: #f472b6;">"paradigm"</span>: <span style="color: #94a3b8;">{</span>
+        <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"m-AFC"</span>,
+        <span style="color: #f472b6;">"intervals"</span>: <span style="color: #94a3b8;">[</span>
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"reference"</span>, <span style="color: #f472b6;">"fixed"</span>: <span style="color: #fbbf24;">true</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">false</span> <span style="color: #94a3b8;">}</span>,
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"reference"</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">true</span> <span style="color: #94a3b8;">}</span>,
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"target"</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">true</span> <span style="color: #94a3b8;">}</span>,
+          <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"condition"</span>: <span style="color: #38bdf8;">"reference"</span>, <span style="color: #f472b6;">"fixed"</span>: <span style="color: #fbbf24;">true</span>, <span style="color: #f472b6;">"selectable"</span>: <span style="color: #fbbf24;">false</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">]</span>,
+        <span style="color: #f472b6;">"randomizeOrder"</span>: <span style="color: #fbbf24;">true</span>,
+        <span style="color: #f472b6;">"timing"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"isiMs"</span>: <span style="color: #fbbf24;">500</span>, <span style="color: #f472b6;">"itiMs"</span>: <span style="color: #fbbf24;">1000</span> <span style="color: #94a3b8;">}</span>
+      <span style="color: #94a3b8;">}</span>,
+      <span style="color: #f472b6;">"stimuli"</span>: <span style="color: #94a3b8;">[</span>
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"multi_component"</span>,
+          <span style="color: #f472b6;">"components"</span>: <span style="color: #94a3b8;">[</span>
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">200</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">410</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">641</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">900</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">1194</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">1527</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>,
+            <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"frequency"</span>: <span style="color: #fbbf24;">1904</span>, <span style="color: #f472b6;">"levelDb"</span>: <span style="color: #fbbf24;">60</span> <span style="color: #94a3b8;">}</span>
+          <span style="color: #94a3b8;">]</span>,
+          <span style="color: #f472b6;">"durationMs"</span>: <span style="color: #fbbf24;">400</span>,
+          <span style="color: #f472b6;">"globalEnvelope"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"attackMs"</span>: <span style="color: #fbbf24;">50</span>, <span style="color: #f472b6;">"releaseMs"</span>: <span style="color: #fbbf24;">50</span>, <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"cosine"</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>
+      <span style="color: #94a3b8;">]</span>,
+      <span style="color: #f472b6;">"perturbations"</span>: <span style="color: #94a3b8;">[</span>
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"mistuning"</span>,
+          <span style="color: #f472b6;">"applyTo"</span>: <span style="color: #38bdf8;">"all"</span>,
+          <span style="color: #f472b6;">"deltaPercent"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"uniform"</span>, <span style="color: #f472b6;">"min"</span>: <span style="color: #fbbf24;">-10</span>, <span style="color: #f472b6;">"max"</span>: <span style="color: #fbbf24;">10</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>,
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"phase_shift"</span>,
+          <span style="color: #f472b6;">"applyTo"</span>: <span style="color: #38bdf8;">"all"</span>,
+          <span style="color: #f472b6;">"deltaDegrees"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"uniform"</span>, <span style="color: #f472b6;">"min"</span>: <span style="color: #fbbf24;">0</span>, <span style="color: #f472b6;">"max"</span>: <span style="color: #fbbf24;">360</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>,
+        <span style="color: #94a3b8;">{</span>
+          <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"mistuning"</span>,
+          <span style="color: #f472b6;">"targetFrequency"</span>: <span style="color: #fbbf24;">776</span>,
+          <span style="color: #f472b6;">"deltaPercent"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"adaptive"</span>: <span style="color: #fbbf24;">true</span> <span style="color: #94a3b8;">}</span>
+        <span style="color: #94a3b8;">}</span>
+      <span style="color: #94a3b8;">]</span>,
+      <span style="color: #f472b6;">"adaptive"</span>: <span style="color: #94a3b8;">{</span>
+        <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"staircase"</span>,
+        <span style="color: #f472b6;">"parameter"</span>: <span style="color: #38bdf8;">"perturbations[3].deltaPercent"</span>,
+        <span style="color: #f472b6;">"initialValue"</span>: <span style="color: #fbbf24;">4</span>,
+        <span style="color: #f472b6;">"stepType"</span>: <span style="color: #38bdf8;">"geometric"</span>,
+        <span style="color: #f472b6;">"stepSizes"</span>: <span style="color: #94a3b8;">[</span><span style="color: #fbbf24;">2</span>, <span style="color: #fbbf24;">1.414</span>, <span style="color: #fbbf24;">1.189</span><span style="color: #94a3b8;">]</span>,
+        <span style="color: #f472b6;">"rule"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"correctDown"</span>: <span style="color: #fbbf24;">3</span> <span style="color: #94a3b8;">}</span>,
+        <span style="color: #f472b6;">"minValue"</span>: <span style="color: #fbbf24;">0.01</span>,
+        <span style="color: #f472b6;">"maxValue"</span>: <span style="color: #fbbf24;">50</span>,
+        <span style="color: #f472b6;">"unit"</span>: <span style="color: #38bdf8;">"%"</span>
+      <span style="color: #94a3b8;">}</span>,
+      <span style="color: #f472b6;">"termination"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"reversals"</span>: <span style="color: #fbbf24;">12</span> <span style="color: #94a3b8;">}</span>
+    <span style="color: #94a3b8;">}</span>
+  <span style="color: #94a3b8;">]</span>
+<span style="color: #94a3b8;">}</span></pre>
+                        </div>
+                    </div>
+
+                    <div class="m-t-4" style="padding-top: 3rem;">
                         <h3>Explore the Project</h3>
                         <div class="grid col-2 m-t-2">
                             <div class="card">
