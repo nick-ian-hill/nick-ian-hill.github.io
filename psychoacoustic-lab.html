@@ -165,8 +165,9 @@
                     <div style="margin-top: 4rem;">
                         <h2>Experiment Configuration Schema</h2>
                         <p>The following configuration defines a <strong>Relative Frequency Discrimination</strong>
-                            experiment. It showcases the platform's ability to handle complex 4I-2AFC paradigms with
-                            anchored intervals, multi-component harmonic stimuli, and adaptive geometric staircases.</p>
+                            experiment. It illustrates how multiple conditions can be unified into a single
+                            configuration, utilizing complex 4I-2AFC paradigms with anchored intervals, multi-component
+                            harmonic stimuli, and adaptive geometric staircases.</p>
 
                         <div class="code-block">
                             <pre><span style="color: #94a3b8;">{</span>
@@ -176,8 +177,8 @@
     <span style="color: #f472b6;">"seed"</span>: <span style="color: #fbbf24;">42</span>,
     <span style="color: #f472b6;">"autoSave"</span>: <span style="color: #fbbf24;">true</span>,
     <span style="color: #f472b6;">"summary"</span>: <span style="color: #38bdf8;">"Identify the mistuned 4th component in harmonic vs. stretched complexes."</span>,
-    <span style="color: #f472b6;">"description"</span>: <span style="color: #38bdf8;">"This experiment measures your sensitivity to frequency shifts within a complex tone..."</span>,
-    <span style="color: #f472b6;">"rationale"</span>: <span style="color: #38bdf8;">"Comparing discrimination thresholds in harmonic vs. inharmonic contexts..."</span>
+    <span style="color: #f472b6;">"description"</span>: <span style="color: #38bdf8;">"This experiment measures your sensitivity to frequency shifts within a complex tone. You will compare performance between perfectly harmonic tones and 'stretched' inharmonic tones."</span>,
+    <span style="color: #f472b6;">"rationale"</span>: <span style="color: #38bdf8;">"Comparing discrimination thresholds in harmonic vs. inharmonic contexts reveals how the brain utilizes harmonicity for auditory scene analysis."</span>
   <span style="color: #94a3b8;">}</span>,
   <span style="color: #f472b6;">"blocks"</span>: <span style="color: #94a3b8;">[</span>
     <span style="color: #94a3b8;">{</span>
@@ -185,7 +186,7 @@
       <span style="color: #f472b6;">"feedback"</span>: <span style="color: #fbbf24;">true</span>,
       <span style="color: #f472b6;">"meta"</span>: <span style="color: #94a3b8;">{</span>
         <span style="color: #f472b6;">"summary"</span>: <span style="color: #38bdf8;">"HARMONIC CONTEXT: Select the interval where the 4th tone sounds different."</span>,
-        <span style="color: #f472b6;">"description"</span>: <span style="color: #38bdf8;">"The first and last sounds are anchors..."</span>
+        <span style="color: #f472b6;">"description"</span>: <span style="color: #38bdf8;">"The first and last sounds are anchors. Identify which of the middle two (2 or 3) has a different pitch in its 4th component."</span>
       <span style="color: #94a3b8;">}</span>,
       <span style="color: #f472b6;">"paradigm"</span>: <span style="color: #94a3b8;">{</span>
         <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"m-AFC"</span>,
@@ -291,7 +292,7 @@
         <span style="color: #94a3b8;">}</span>,
         <span style="color: #94a3b8;">{</span>
           <span style="color: #f472b6;">"type"</span>: <span style="color: #38bdf8;">"mistuning"</span>,
-          <span style="color: #f472b6;">"targetFrequency"</span>: <span style="color: #fbbf24;">776</span>,
+          <span style="color: #f472b6;">"targetFrequency"</span>: <span style="color: #fbbf24;">900</span>,
           <span style="color: #f472b6;">"deltaPercent"</span>: <span style="color: #94a3b8;">{</span> <span style="color: #f472b6;">"adaptive"</span>: <span style="color: #fbbf24;">true</span> <span style="color: #94a3b8;">}</span>
         <span style="color: #94a3b8;">}</span>
       <span style="color: #94a3b8;">]</span>,
