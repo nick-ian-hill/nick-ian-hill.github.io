@@ -100,15 +100,15 @@
                     <div class="pattern-card">
                         <h4>Capability 01</h4>
                         <h3>Surgical OOXML Architecture</h3>
-                        <p>Unlike basic text-replacement tools, ALINE uses a "Virtual Linearization" strategy to manipulate Microsoft Word documents at the XML level. This ensures that every track-change and margin comment is anchored with byte-perfect accuracy while preserving the author's original formatting (italics, bolding, custom fonts).</p>
+                        <p>ALINE avoids "blunt" text replacement. While the LLM provides a full paragraph rewrite (<code>new_paragraph</code>), the **OOXML Reconstruction Engine** performs a character-level diff against the original source. It then surgically injects <code>&lt;w:ins&gt;</code> and <code>&lt;w:del&gt;</code> tags into the XML tree. This isolates a single changed word or punctuation mark while preserving the complex formatting of the surrounding text.</p>
                         
                         <div class="code-block" style="margin-top: 1.5rem;">
-                            <pre><span style="color: #94a3b8;">// SurgicalEdit schema with anti-hallucination anchoring</span>
+                            <pre><span style="color: #94a3b8;">// The SurgicalEdit Payload</span>
 <span style="color: #94a3b8;">{</span>
-  <span style="color: #f472b6;">"id"</span>: <span style="color: #fbbf24;">12</span>,
-  <span style="color: #f472b6;">"original_snippet"</span>: <span style="color: #38bdf8;">"adjusted his glasses as the fog"</span>,
-  <span style="color: #f472b6;">"new_text"</span>: <span style="color: #38bdf8;">"adjusted his <span class="insertion-accent">spectacles</span> as the fog"</span>,
-  <span style="color: #f472b6;">"comments"</span>: <span style="color: #94a3b8;">[</span><span style="color: #38bdf8;">"Upgrading to 'spectacles' for era-appropriate vocabulary."</span><span style="color: #94a3b8;">]</span>
+  <span style="color: #f472b6;">"id"</span>: <span style="color: #fbbf24;">12</span>, <span style="color: #94a3b8;">// Deterministic paragraph index</span>
+  <span style="color: #f472b6;">"paragraph_start"</span>: <span style="color: #38bdf8;">"Elias adjusted his glasses as"</span>, <span style="color: #94a3b8;">// Verification anchor (start of original para)</span>
+  <span style="color: #f472b6;">"new_paragraph"</span>: <span style="color: #38bdf8;">"Elias adjusted his <span class="insertion-accent">spectacles</span> as the fog..."</span>, <span style="color: #94a3b8;">// Full paragraph rewrite</span>
+  <span style="color: #f472b6;">"comments"</span>: <span style="color: #94a3b8;">[</span><span style="color: #38bdf8;">"Upgrading vocabulary for era-appropriate tone."</span><span style="color: #94a3b8;">]</span>
 <span style="color: #94a3b8;">}</span></pre>
                         </div>
                     </div>
@@ -129,14 +129,15 @@
                     <div class="pattern-card">
                         <h4>Capability 03</h4>
                         <h3>Forensic Narrative Intelligence</h3>
-                        <p>Beyond surface-level grammar, ALINE performs a <strong>Forensic Narrative Audit</strong>. It tracks character attributes, critical assets, and chronological events across the entire book to identify "narrative physics" breaks.</p>
+                        <p>Beyond surface-level grammar, ALINE performs a <strong>Forensic Narrative Audit</strong>. It tracks character attributes, critical assets, and chronological events across the entire book to identify "narrative physics" breaks. This isn't just fuzzy memory; it's a structured <strong>Master Narrative State</strong>.</p>
                         
                         <div class="code-block" style="margin-top: 1.5rem;">
-                            <pre><span style="color: #94a3b8;">// Forensic Anomaly Detection Logic</span>
-<span style="color: #f472b6;">if</span> (chunk_gap < <span style="color: #fbbf24;">3</span> && state_shift) {
-    verdict = <span style="color: #38bdf8;">"ANOMALY (Sudden Shift)"</span>;
-    alert = <span style="color: #38bdf8;">"Character changed hat color from Red to Blue without a scene transition."</span>;
-}</pre>
+                            <pre><span style="color: #94a3b8;">// The Master Narrative State Schema</span>
+<span style="color: #94a3b8;">{</span>
+  <span style="color: #f472b6;">"character_bible"</span>: <span style="color: #94a3b8;">[{</span> <span style="color: #f472b6;">"name"</span>: <span style="color: #38bdf8;">"Elias"</span>, <span style="color: #f472b6;">"traits"</span>: <span style="color: #94a3b8;">[</span><span style="color: #38bdf8;">"limps on left leg"</span><span style="color: #94a3b8;">] }]</span>,
+  <span style="color: #f472b6;">"unified_timeline"</span>: <span style="color: #94a3b8;">[{</span> <span style="color: #f472b6;">"event"</span>: <span style="color: #38bdf8;">"The Fog Rises"</span>, <span style="color: #f472b6;">"importance"</span>: <span style="color: #fbbf24;">0.9</span> <span style="color: #94a3b8;">}]</span>,
+  <span style="color: #f472b6;">"unresolved_questions"</span>: <span style="color: #94a3b8;">[</span><span style="color: #38bdf8;">"Who left the window open in Chapter 4?"</span><span style="color: #94a3b8;">]</span>
+<span style="color: #94a3b8;">}</span></pre>
                         </div>
                         
                         <ul class="feature-list" style="margin-top: 1rem;">
@@ -148,6 +149,17 @@
 
                     <div class="pattern-card">
                         <h4>Capability 04</h4>
+                        <h3>Global Narrative Synthesis</h3>
+                        <p>While the <em>Surgical Loop</em> handles the mechanics, the <strong>Director Persona</strong> performs a secondary, high-level pass. This <em>Story Analysis</em> orchestration synthesizes thousands of forensic observations into a cohesive editorial report, ensuring that the book's "big picture" is as polished as its individual sentences.</p>
+                        
+                        <div style="margin-top: 1.5rem; background: var(--bg-midnight-soft); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #a855f7;">
+                            <p style="font-style: italic; color: var(--text-primary); margin-bottom: 0.5rem;">"The emotional payoff in the third act is slightly undermined by the lack of setup for Elias's injury. Consider seeding the 'limp' earlier in Chapter 2."</p>
+                            <span style="font-size: 0.8rem; color: #a855f7; font-weight: 600; text-transform: uppercase;">— Global Synthesis Feedback</span>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h4>Capability 05</h4>
                         <h3>Execution Profiles & Economy</h3>
                         <p>To balance speed and cost, ALINE employs a multi-model strategy. Users can toggle between <strong>Production</strong> (Max Reasoning), <strong>Balanced</strong> (High Speed), and <strong>Economy</strong> (Rapid Cleanup) profiles.</p>
                         
@@ -182,6 +194,11 @@
                     <div style="margin-top: 4rem;">
                         <h2>Technical Architecture Overview</h2>
                         <p class="section-text" style="margin-bottom: 2rem;">ALINE is architected as a decoupled agentic system that prioritizes document integrity and narrative continuity. The system is split into two primary layers: a <strong>Python-based OOXML Engine</strong> and a <strong>TypeScript Orchestrator</strong>.</p>
+                        
+                        <div style="margin-bottom: 3rem; background: var(--bg-midnight-soft); border-radius: 12px; padding: 2rem; border: 1px solid var(--border-color);">
+                            <img src="Media/AlineArchitecture.svg" alt="ALINE Architecture Diagram" style="width: 100%; height: auto; display: block;">
+                            <p style="text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 1rem;">The two-phase agentic flow: Surgical Chunking and Global Synthesis.</p>
+                        </div>
                         
                         <div class="pattern-card">
                             <h4>Layer 01</h4>
