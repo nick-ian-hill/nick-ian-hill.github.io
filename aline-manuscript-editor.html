@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALINE | Nick Hill</title>
+    <meta name="description"
+        content="Automated Literary Integrity and Narrative Editor (ALINE): A deep dive into LLM orchestration, OOXML manipulation, and forensic narrative audits.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .terminal-block {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e2e8f0;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .terminal-block::before {
+            content: 'Terminal';
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            font-size: 0.7rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.2rem 0.5rem;
+        }
+
+        .terminal-prompt {
+            color: #38bdf8;
+            margin-right: 0.5rem;
+        }
+
+        .terminal-command {
+            color: #f472b6;
+        }
+
+        .redline-accent {
+            color: #f87171;
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+
+        .insertion-accent {
+            color: #4ade80;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="Media/Gapjumper.svg" alt="Gapjumper" width="141">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="mainNav">
+                <a href="index.html" class="nav-link">Overview</a>
+                <a href="enterprise-mcp.html" class="nav-link">Enterprise MCP</a>
+                <a href="aline-manuscript-editor.html" class="nav-link active" style="color: var(--accent-blue);">Manuscript Editor</a>
+                <a href="agent-experience.html" class="nav-link">Agent Experience</a>
+                <a href="psychoacoustic-lab.html" class="nav-link">Psychoacoustic Lab</a>
+                <a href="Nick Hill - Resume.pdf" class="nav-cta" download>CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="article-content">
+            <section class="article-hero">
+                <div class="container-sm">
+                    <a href="index.html" class="back-link">← Back to Overview</a>
+                    <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem;">
+                        ALINE
+                        <span class="text-pink">Editor</span>
+                    </h1>
+                    <p class="section-text" style="font-size: 1.4rem; max-width: 100%;">Automated Literary Integrity and Narrative Editor</p>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <div class="container-sm">
+                    <p><strong>ALINE</strong> is an industrial-grade manuscript editing system built to solve the "last mile" problem of AI in publishing: ensuring that LLM-generated edits are technically perfect, contextually aware, and surgically applied to professional documents.</p>
+
+                    <div class="pattern-card">
+                        <h4>Capability 01</h4>
+                        <h3>Surgical OOXML Architecture</h3>
+                        <p>Unlike basic text-replacement tools, ALINE uses a "Virtual Linearization" strategy to manipulate Microsoft Word documents at the XML level. This ensures that every track-change and margin comment is anchored with byte-perfect accuracy while preserving the author's original formatting (italics, bolding, custom fonts).</p>
+                        
+                        <div class="code-block" style="margin-top: 1.5rem;">
+                            <pre><span style="color: #94a3b8;">// SurgicalEdit schema with anti-hallucination anchoring</span>
+<span style="color: #94a3b8;">{</span>
+  <span style="color: #f472b6;">"id"</span>: <span style="color: #fbbf24;">12</span>,
+  <span style="color: #f472b6;">"original_snippet"</span>: <span style="color: #38bdf8;">"adjusted his glasses as the fog"</span>,
+  <span style="color: #f472b6;">"new_text"</span>: <span style="color: #38bdf8;">"adjusted his <span class="insertion-accent">spectacles</span> as the fog"</span>,
+  <span style="color: #f472b6;">"comments"</span>: <span style="color: #94a3b8;">[</span><span style="color: #38bdf8;">"Upgrading to 'spectacles' for era-appropriate vocabulary."</span><span style="color: #94a3b8;">]</span>
+<span style="color: #94a3b8;">}</span></pre>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h4>Capability 02</h4>
+                        <h3>Agentic Command & Control</h3>
+                        <p>ALINE is designed for both human-in-the-loop and fully automated workflows. While a researcher can drill down into a manuscript using specific MCP tools, a full-book edit can be triggered with a single, high-level command.</p>
+                        
+                        <div class="terminal-block">
+                            <span class="terminal-prompt">C:\Users\Nick\Development\aline-editor></span>
+                            <span class="terminal-command">node client/dist/index.js -f "manuscript.docx" --profile economy --deep --author "ALINE" -l "UK English"</span>
+                        </div>
+                        
+                        <p>This command orchestrates parallel chunking, state preservation in <code>.aline_analysis.json</code>, and an automated multi-pass editorial loop (Workhorse -> Critic -> Director).</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h4>Capability 03</h4>
+                        <h3>Forensic Narrative Intelligence</h3>
+                        <p>Beyond surface-level grammar, ALINE performs a <strong>Forensic Narrative Audit</strong>. It tracks character attributes, critical assets, and chronological events across the entire book to identify "narrative physics" breaks.</p>
+                        
+                        <div class="code-block" style="margin-top: 1.5rem;">
+                            <pre><span style="color: #94a3b8;">// Forensic Anomaly Detection Logic</span>
+<span style="color: #f472b6;">if</span> (chunk_gap < <span style="color: #fbbf24;">3</span> && state_shift) {
+    verdict = <span style="color: #38bdf8;">"ANOMALY (Sudden Shift)"</span>;
+    alert = <span style="color: #38bdf8;">"Character changed hat color from Red to Blue without a scene transition."</span>;
+}</pre>
+                        </div>
+                        
+                        <ul class="feature-list" style="margin-top: 1rem;">
+                            <li><strong>Entity Persistence:</strong> Detects logic leaps in character attributes or asset locations.</li>
+                            <li><strong>Pacing Heat Mapping:</strong> Visualizes narrative momentum to identify "dead zones" in the manuscript.</li>
+                            <li><strong>Structural Radar:</strong> Analyzes the total prose DNA (Action vs. Dialogue vs. Interiority).</li>
+                        </ul>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h4>Capability 04</h4>
+                        <h3>Execution Profiles & Economy</h3>
+                        <p>To balance speed and cost, ALINE employs a multi-model strategy. Users can toggle between <strong>Production</strong> (Max Reasoning), <strong>Balanced</strong> (High Speed), and <strong>Economy</strong> (Rapid Cleanup) profiles.</p>
+                        
+                        <div style="margin-top: 2rem; overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; color: var(--text-secondary); font-size: 0.9rem;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid var(--border-color); text-align: left;">
+                                        <th style="padding: 1rem;">Profile</th>
+                                        <th style="padding: 1rem;">Workhorse (Edits)</th>
+                                        <th style="padding: 1rem;">Critic (Validation)</th>
+                                        <th style="padding: 1rem;">Synthesis</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem; color: var(--text-primary); font-weight: 600;">Production</td>
+                                        <td style="padding: 1rem;">Gemini 3 Flash</td>
+                                        <td style="padding: 1rem;">Gemini 3.1 Pro</td>
+                                        <td style="padding: 1rem;">Gemini 3.1 Pro</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 1rem; color: var(--text-primary); font-weight: 600;">Economy</td>
+                                        <td style="padding: 1rem;">G3.1 Flash-Lite</td>
+                                        <td style="padding: 1rem;">Skipped</td>
+                                        <td style="padding: 1rem;">G3.1 Flash-Lite</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 4rem;">
+                        <h2>Technical Architecture Overview</h2>
+                        <p class="section-text" style="margin-bottom: 2rem;">ALINE is architected as a decoupled agentic system that prioritizes document integrity and narrative continuity. The system is split into two primary layers: a <strong>Python-based OOXML Engine</strong> and a <strong>TypeScript Orchestrator</strong>.</p>
+                        
+                        <div class="pattern-card">
+                            <h4>Layer 01</h4>
+                            <h3>The Multi-Model Editorial Pipeline</h3>
+                            <p>To balance high-speed throughput with deep creative reasoning, ALINE employs a tiered model strategy:</p>
+                            <ul class="feature-list" style="margin-top: 1rem;">
+                                <li><strong>The Workhorse (Gemini 3 Flash):</strong> Performs initial 1200-word chunking, prose styling, and granular copy-editing.</li>
+                                <li><strong>The Critic (Gemini 3.1 Pro):</strong> Invoked for high-stakes structural revisions, validating proposed surgical patches against the author's intent.</li>
+                                <li><strong>The Director (Gemini 3.1 Pro):</strong> Manages the "Master Narrative State," performing longitudinal synthesis and backward reconciliation to ensure a coherent editorial voice.</li>
+                            </ul>
+                        </div>
+
+                        <div class="pattern-card">
+                            <h4>Layer 02</h4>
+                            <h3>Virtual Linearization & Surgical Patching</h3>
+                            <p>The system avoids traditional text-replacement. Instead, it utilizes a <strong>Virtual Linearization</strong> strategy that maps paragraphs to unique identifiers. Edits are returned as <code>SurgicalEdit</code> objects that include anti-hallucination snippets, ensuring that the OOXML engine only modifies text that precisely matches the intended anchor.</p>
+                        </div>
+
+                        <div class="pattern-card">
+                            <h4>Layer 03</h4>
+                            <h3>Resilient State & Checkpointing</h3>
+                            <p>Designed for overnight batch processing, ALINE preserves the entire editorial state in a persistent <code>.aline_analysis.json</code> file. This allows for:</p>
+                            <ul class="feature-list" style="margin-top: 1rem;">
+                                <li><strong>Atomic Resumption:</strong> Seamlessly restart runs after network or API failures without re-processing chunks.</li>
+                                <li><strong>Exponential Backoff:</strong> Intelligent retry logic to handle rate-limiting (429) or transient server errors (503).</li>
+                                <li><strong>Backward Reconciliation:</strong> A final pass that prunes redundant comments once the global narrative profile is finalized.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 4rem;">
+                        <h2>Project Access</h2>
+                        <div class="card" style="border: 1px solid var(--accent-blue); background: rgba(56, 189, 248, 0.05);">
+                            <h4 class="card-title">Commercial Repository Access</h4>
+                            <p class="card-text">The ALINE repository is currently <strong>private</strong> as the system is <strong>reserved for</strong> commercial editorial workflows. For a full technical walkthrough, access to the source code, or to discuss commercial licensing, please feel free to get in touch.</p>
+                            <a href="mailto:nick.hill@gapjumper.com?subject=ALINE%20Repository%20Access%20Request" 
+                                class="text-blue" style="display: block; margin-top: 1.5rem; font-weight: 600;">Request Access via Email →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <footer class="footer">
+            <div class="container footer-inner">
+                <div class="footer-logo">
+                    <img src="Media/Gapjumper.svg" alt="Gapjumper" width="104" style="opacity: 0.8;">
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:nick.hill@gapjumper.com">nick.hill@gapjumper.com</a>
+                    <span>&copy; 2026 Gapjumper / Nick Hill</span>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/nick-hill-7a7918400" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/nick-ian-hill" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
